@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'mysite',  # our app added here
 ]
 
 # no direct access
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'mysite.urls' # this is the main url file
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [], # list of directories to search for templates
+        'DIRS': [BASE_DIR,"templates"], # list of directories to search for templates
         'APP_DIRS': True, # looks for templates folder in each app
         'OPTIONS': {
             'context_processors': [
@@ -121,10 +122,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # this is used to set the default auto field type for models
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR , "static"
+]
